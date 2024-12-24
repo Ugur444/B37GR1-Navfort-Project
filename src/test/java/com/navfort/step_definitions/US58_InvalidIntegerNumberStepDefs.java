@@ -20,7 +20,7 @@ public class US58_InvalidIntegerNumberStepDefs {
 
         Driver.getDriver().get("https:qa.navfort.com");
 
-        invalidIntegerNumber.UserName.sendKeys("user3");
+        invalidIntegerNumber.UserName.sendKeys("user1");
         invalidIntegerNumber.password.sendKeys("UserUser123");
         invalidIntegerNumber.logInBUtton.click();
     }
