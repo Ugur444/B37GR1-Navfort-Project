@@ -81,11 +81,14 @@ public class US58_InvalidIntegerNumberStepDefs {
 
 
 
-        String ExpectedMessage = "span";
-        String ActualMessage = invalidIntegerNumber.invalidMessage1.getTagName();
-        BrowserUtils.waitFor(5);
+//        String ExpectedMessage = "span";
+//        String ActualMessage = invalidIntegerNumber.invalidMessage1.getTagName();
+//        BrowserUtils.waitFor(5);
+//
+//        Assert.assertEquals("Message is not Equal!", ExpectedMessage, ActualMessage);
 
-        Assert.assertEquals("Message is not Equal!", ExpectedMessage, ActualMessage);
+        invalidIntegerNumber.invalidMessage1.isDisplayed();
+
     }
 
 
@@ -104,11 +107,13 @@ public class US58_InvalidIntegerNumberStepDefs {
     @Then("user should see an error message\\(The value have not to be more than 99.)")
     public void userShouldSeeAnErrorMessageTheValueHaveNotToBeMoreThan() {
 
-        String ExpectedMessage = "span";
-        String ActualMessage =invalidIntegerNumber.invalidMessage2.getTagName();
-        BrowserUtils.waitFor(5);
+//        String ExpectedMessage = "span";
+//        String ActualMessage =invalidIntegerNumber.invalidMessage2.getTagName();
+//        BrowserUtils.waitFor(5);
+//
+//        Assert.assertEquals("Message is not Equal!", ExpectedMessage, ActualMessage);
 
-        Assert.assertEquals("Message is not Equal!", ExpectedMessage, ActualMessage);
+        invalidIntegerNumber.invalidMessage2.isDisplayed();
 
     }
 

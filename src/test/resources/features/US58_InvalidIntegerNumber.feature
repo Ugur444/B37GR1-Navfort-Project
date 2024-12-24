@@ -1,9 +1,7 @@
 
 Feature: User should see error messages when entered invalid integer into the Calendar repeat day input box.
 
-  Scenario:US58TC01AC01User selects "Calendar Events" from the "Activities" dropdown.
-
-
+  Scenario:US58TC01AC01 User selects "Calendar Events" from the "Activities" dropdown.
     Given user is on the Fleet Management Dashboard
     When user click on the "Activities" Dropdown
     Then the "Calendar Events" option should be visible
