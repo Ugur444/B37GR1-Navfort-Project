@@ -6,8 +6,17 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "@target/rerun.txt",
-        glue = "com/navfort/step_definitions"
+
+        plugin = {
+                "html:target/cucumber-reports.html",
+                "rerun:target/rerun.txt",
+                "me.jvt.cucumber.report.PrettyReports:target/cucumber"
+        },
+        features = "src/test/resources/features",
+        glue = "com/navfort/step_definitions",
+        dryRun = false,
+        tags = " @wip",
+        publish = true
 )
 public class FailedTestRunner {
 }
