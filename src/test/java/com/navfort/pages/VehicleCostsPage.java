@@ -5,21 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class VehicleCostsPage {
+public class VehicleCostsPage extends LoginPage {
 
     public VehicleCostsPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-
-    @FindBy(id = "prependedInput")
-    public WebElement username;
-
-    @FindBy(id = "prependedInput2")
-    public WebElement password;
-
-    @FindBy(xpath = "//button[@type='submit']")
-    public WebElement loginButton;
 
     @FindBy(xpath = "(//a[.='Learn how to use this space'])[1]")
     public WebElement pinbarLink;
