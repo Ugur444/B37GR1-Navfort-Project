@@ -11,25 +11,18 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 public class US58_InvalidIntegerNumberStepDefs {
 
+
+
     InvalidIntegerNumber invalidIntegerNumber = new InvalidIntegerNumber();
 
 
 
-    @Given("user is on the Fleet Management Dashboard")
-    public void user_is_on_the_fleet_management_dashboard() {
-
-        Driver.getDriver().get("https:qa.navfort.com");
-
-        invalidIntegerNumber.UserName.sendKeys("user1");
-        invalidIntegerNumber.password.sendKeys("UserUser123");
-        invalidIntegerNumber.logInBUtton.click();
-    }
-
     @When("user click on the {string} Dropdown")
     public void user_click_on_the_dropdown(String DropDown) {
 
+        BrowserUtils.waitFor(5);
         invalidIntegerNumber.ActivitiesDropDown.click();
-
+        BrowserUtils.waitFor(5);
     }
 
     @Then("the {string} option should be visible")

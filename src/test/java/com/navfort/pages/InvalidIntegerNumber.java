@@ -11,18 +11,9 @@ public class InvalidIntegerNumber {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(id = "prependedInput")
-    public WebElement UserName;
-
-    @FindBy(id = "prependedInput2")
-    public WebElement password;
 
 
-    @FindBy(xpath = "//button[@type='submit']")
-    public WebElement logInBUtton;
-
-
-    @FindBy(xpath = "(//span[@class='title title-level-1'])[3]")
+    @FindBy(xpath = "//li[contains(@class,'dropdown-level-1')]//span[normalize-space(text())='Activities']")
     public WebElement ActivitiesDropDown;
 
     @FindBy(xpath = "//span[text()='Calendar Events']")
@@ -40,7 +31,6 @@ public class InvalidIntegerNumber {
 
     @FindBy(xpath ="(//button[@type='submit'])[1]")
     public WebElement SaveAndClose;
-
 
 
     @FindBy(xpath ="//span[text()='The value have not to be less than 1.']")
