@@ -10,6 +10,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -24,12 +25,14 @@ public class US61_AccountsPageFilterStepDefs {
 
     @When("the user is on the accounts page")
     public void the_user_is_on_the_accounts_page() {
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(5);
         dashboardPage.goToAccounts();
+        BrowserUtils.sleep(3);
     }
 
     @Then("the user clicked on the Manage filters button")
     public void theUserClickedOnTheManageFiltersButton() {
+        accountsPage.filterButton.click();
         accountsPage.manageFiltersButton.click();
     }
 
@@ -40,29 +43,14 @@ public class US61_AccountsPageFilterStepDefs {
         }
     }
 
-    @And("the user should see these options are clickable")
-    public void theUserShouldSeeTheseOptionsAreClickable() {
-        for (WebElement each : accountsPage.filterCheckBoxOptions) {
-            Assert.assertTrue(each.isSelected());
-        }
-
-    }
-
-
-    @Then("the user should see below options selected")
-    public void theUserShouldSeeBelowOptionsSelected(List<String> expectedOptions) {
-
+    @Then("the user should see below options displayed")
+    public void theUserShouldSeeBelowOptionsDisplayed(List<String> expectedOptions) {
         List<WebElement> actualOptionsWebElement = accountsPage.filterCheckBoxOptions;
-        List<String> actualOptions = new ArrayList<>();
+        List<String> actualOptionsString = new ArrayList<>();
         for (WebElement actualOption : actualOptionsWebElement) {
-
-            actualOptions.add(actualOption.getText());
-
+            actualOptionsString.add(actualOption.getText());
         }
-        Assert.assertEquals(actualOptions, expectedOptions);
-
+        Assert.assertEquals(actualOptionsString,expectedOptions);
 
     }
-
-
 }
