@@ -7,8 +7,8 @@ Feature:
     Given the user is on the login page
 
   Scenario: As Store and Sales managers
-    When user enters "Store and Sales managers" information
-    Then user should be able to access "all the following modules"
+    Given the user logged in as "Store manager"
+    Then user should be able to access all the following modules
       | Dashboards         |
       | Fleet              |
       | Customers          |
@@ -17,3 +17,13 @@ Feature:
       | Marketing          |
       | Reports & Segments |
       | System             |
+
+  Scenario: As drivers
+    Given the user logged in as "driver"
+    Then user should be able to access 4 module names
+      | Fleet      |
+      | Customers  |
+      | Activities |
+      | System     |
+
+

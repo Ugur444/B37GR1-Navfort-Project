@@ -13,24 +13,17 @@ public class US50_MainModulesStepDefs {
 
     LoginPage loginPage = new LoginPage();
 
-    @When("user enters {string} information")
-    public void userEntersInformation(String arg0) {
 
-        loginPage.userName.sendKeys("store_manager_username");
-        loginPage.password.sendKeys("store_manager_password");
-        BrowserUtils.sleep(2);
-        loginPage.submit.click();
+
+    @Then("user should be able to access all the following modules")
+    public void userShouldBeAbleToAccessAllTheFollowingModules() {
+    }
+
+
+    @Then("user should be able to access {int} module names")
+    public void userShouldBeAbleToAccessModuleNames(int arg0) {
 
     }
 
 
-    @Then("user should be able to access {string}")
-    public void userShouldBeAbleToAccess(List<String> expectedModules) {
-
-        BrowserUtils.sleep(2);
-        List<String> actualModules = BrowserUtils.getElementsText(MainModulesPage.allModules);
-
-        Assert
-
-    }
 }
