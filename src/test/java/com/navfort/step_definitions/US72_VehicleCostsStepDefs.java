@@ -1,52 +1,41 @@
 package com.navfort.step_definitions;
 
 import com.navfort.pages.VehicleCostsPage;
+import com.navfort.utilities.BrowserUtils;
 import com.navfort.utilities.Driver;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-
+import org.openqa.selenium.JavascriptExecutor;
 
 public class US72_VehicleCostsStepDefs {
 
     VehicleCostsPage vehicleCostsPage = new VehicleCostsPage();
 
-    @Given("user is on the homepage")
-    public void userIsOnTheHomepage() {
-
-        Driver.getDriver().get("https:qa.navfort.com");
-
-        vehicleCostsPage.username.sendKeys("user1");
-        vehicleCostsPage.password.sendKeys("UserUser123");
-        vehicleCostsPage.loginButton.click();
-    }
-
     @When("user clicks on the {string} link")
     public void user_clicks_on_the_link(String expLink) {
 
-        String actLink = vehicleCostsPage.pinbarLink.getAttribute("innerText");
+        BrowserUtils.sleep(5);
 
-        Assert.assertEquals(expLink, actLink);
+        Assert.assertEquals(expLink, vehicleCostsPage.pinbarLink.getText());
         vehicleCostsPage.pinbarLink.click();
     }
 
     @Then("user should see the header {string}")
     public void userShouldSeeTheHeader(String expHeader) {
+
         vehicleCostsPage.pinbarInstructHead.isDisplayed();
 
-        String actHeader = vehicleCostsPage.pinbarInstructHead.getAttribute("innerText");
-        Assert.assertEquals(expHeader, actHeader);
+        Assert.assertEquals(expHeader, vehicleCostsPage.pinbarInstructHead.getText());
     }
-
 
     @And("user should see the instruction text {string}")
     public void userShouldSeeTheInstructionText(String expText) {
+
         vehicleCostsPage.pinbarInstructText.isDisplayed();
 
-        String actText = vehicleCostsPage.pinbarInstructText.getAttribute("innerText").trim();
-        Assert.assertEquals(expText, actText);
+        Assert.assertEquals(expText, vehicleCostsPage.pinbarInstructText.getText());
     }
 
     @And("user should see an image {string}")
@@ -54,10 +43,12 @@ public class US72_VehicleCostsStepDefs {
 
         vehicleCostsPage.pinbarInstructImg.isDisplayed();
 
-        String actualSource = vehicleCostsPage.pinbarInstructImg.getAttribute("src");
-        Assert.assertTrue(actualSource.contains(expSource));
+        String actualSource = (String) ((JavascriptExecutor) Driver.getDriver())
+                .executeScript("return arguments[0].src;", vehicleCostsPage.pinbarInstructImg);
 
+        Assert.assertTrue(actualSource != null && actualSource.contains(expSource));
     }
+
 
 }
 
