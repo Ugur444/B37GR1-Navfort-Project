@@ -7,8 +7,10 @@ Feature:
     Given the user is on the login page
 
   Scenario: As Store and Sales managers
+
     Given the user logged in as "Store manager"
     Then user should be able to access all the following modules
+
       | Dashboards         |
       | Fleet              |
       | Customers          |
@@ -25,5 +27,6 @@ Feature:
       | Customers  |
       | Activities |
       | System     |
+
 
 
