@@ -80,7 +80,7 @@ public class US58_InvalidIntegerNumberStepDefs {
 //
 //        Assert.assertEquals("Message is not Equal!", ExpectedMessage, ActualMessage);
 
-        invalidIntegerNumber.invalidMessage1.isDisplayed();
+       Assert.assertTrue( "Message is not diplayed",invalidIntegerNumber.invalidMessage1.isDisplayed());
 
     }
 
@@ -106,7 +106,7 @@ public class US58_InvalidIntegerNumberStepDefs {
 //
 //        Assert.assertEquals("Message is not Equal!", ExpectedMessage, ActualMessage);
 
-        invalidIntegerNumber.invalidMessage2.isDisplayed();
+        Assert.assertTrue("Message is not diplayed",invalidIntegerNumber.invalidMessage2.isDisplayed());
 
     }
 
