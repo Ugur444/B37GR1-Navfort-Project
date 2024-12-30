@@ -12,18 +12,18 @@ import java.util.List;
 public class US50_MainModulesStepDefs {
 
     LoginPage loginPage = new LoginPage();
-
     MainModulesPage mainModulesPage = new MainModulesPage();
+
 
 
     @Then("user should be able to access all the following modules")
     public void userShouldBeAbleToAccessAllTheFollowingModules(List<String> expectedModules) {
-
         BrowserUtils.sleep(2);
         List<String> actualModules = BrowserUtils.getElementsText(mainModulesPage.allModules);
 
         BrowserUtils.sleep(2);
         Assert.assertEquals(expectedModules,actualModules);
+
 
     }
 
