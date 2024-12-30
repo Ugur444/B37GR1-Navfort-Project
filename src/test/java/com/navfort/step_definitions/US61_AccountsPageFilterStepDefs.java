@@ -21,7 +21,6 @@ public class US61_AccountsPageFilterStepDefs {
 
     DashboardPage dashboardPage = new DashboardPage();
     AccountsPage accountsPage = new AccountsPage();
-    LoginPage loginPage = new LoginPage();
 
     @When("the user is on the accounts page")
     public void the_user_is_on_the_accounts_page() {
@@ -36,21 +35,18 @@ public class US61_AccountsPageFilterStepDefs {
         accountsPage.manageFiltersButton.click();
     }
 
-    @Then("the user should see {int} options selected")
-    public void theUserShouldSeeOptionsSelected(int numberOfOptions) {
-        for (WebElement each : accountsPage.filterCheckBoxOptions) {
-            Assert.assertTrue(each.isDisplayed());
-        }
-    }
-
     @Then("the user should see below options displayed")
     public void theUserShouldSeeBelowOptionsDisplayed(List<String> expectedOptions) {
-        List<WebElement> actualOptionsWebElement = accountsPage.filterCheckBoxOptions;
-        List<String> actualOptionsString = new ArrayList<>();
-        for (WebElement actualOption : actualOptionsWebElement) {
-            actualOptionsString.add(actualOption.getText());
-        }
-        Assert.assertEquals(actualOptionsString,expectedOptions);
+
+        List<String> actualOptionsString =  BrowserUtils.getElementsText(accountsPage.filterCheckBoxOptions);
+
+        Assert.assertEquals(actualOptionsString, expectedOptions);
 
     }
+
+
+
+
+
+
 }
