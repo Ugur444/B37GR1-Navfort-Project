@@ -21,7 +21,7 @@ public class US50_MainModulesStepDefs {
         BrowserUtils.sleep(2);
         List<String> actualModules = BrowserUtils.getElementsText(mainModulesPage.allModules);
 
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(3);
         Assert.assertEquals(expectedModules,actualModules);
 
 
@@ -34,6 +34,11 @@ public class US50_MainModulesStepDefs {
         //List<String> actualModules = BrowserUtils.getElementsText(mainModulesPage.allModules.containsAll());
 
         BrowserUtils.sleep(2);
+
+        Assert.assertTrue(mainModulesPage.Fleet.isDisplayed());
+        Assert.assertTrue(mainModulesPage.System.isDisplayed());
+        Assert.assertTrue(mainModulesPage.Activities.isDisplayed());
+        Assert.assertTrue(mainModulesPage.Customers.isDisplayed());
 
 
 
