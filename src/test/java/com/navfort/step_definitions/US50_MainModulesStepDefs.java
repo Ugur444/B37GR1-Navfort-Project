@@ -18,9 +18,10 @@ public class US50_MainModulesStepDefs {
 
     @Then("user should be able to access all the following modules")
     public void userShouldBeAbleToAccessAllTheFollowingModules(List<String> expectedModules) {
+        BrowserUtils.waitForTitleContains("Dashboard");
         BrowserUtils.sleep(2);
         List<String> actualModules = BrowserUtils.getElementsText(mainModulesPage.allModules);
-
+        System.out.println("actualModules = " + actualModules);
         BrowserUtils.sleep(3);
         Assert.assertEquals(expectedModules,actualModules);
 
@@ -28,17 +29,16 @@ public class US50_MainModulesStepDefs {
     }
 
 
-    @Then("user should be able to access {int} module names")
-    public void userShouldBeAbleToAccessModuleNames(String Fleet, String System, String Activities, String Customers, List<String>expectedModules) {
-
-        //List<String> actualModules = BrowserUtils.getElementsText(mainModulesPage.allModules.containsAll());
-
+    @Then("user should be able to access four module names")
+    public void userShouldBeAbleToAccessModuleNames(List<String>expectedModules) {
+        BrowserUtils.waitForTitleContains("Dashboard");
         BrowserUtils.sleep(2);
 
-        Assert.assertTrue(mainModulesPage.Fleet.isDisplayed());
-        Assert.assertTrue(mainModulesPage.System.isDisplayed());
-        Assert.assertTrue(mainModulesPage.Activities.isDisplayed());
-        Assert.assertTrue(mainModulesPage.Customers.isDisplayed());
+        List<String> actualModules = BrowserUtils.getElementsText(mainModulesPage.driverModuleNames);
+
+
+
+        Assert.assertEquals(expectedModules,actualModules);
 
 
 
