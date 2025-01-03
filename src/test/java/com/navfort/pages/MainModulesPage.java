@@ -25,20 +25,20 @@ public class MainModulesPage {
     //@FindBy(id = "_submit")
    // public WebElement loginButton;
 
-    @FindBy(xpath = "(//span[@class='title title-level-1'])[1]")
-    public WebElement Dashboards;
+    @FindBy(xpath = "//span[@class='title title-level-1']")
+    public List<WebElement> driverModuleNames;
 
-    @FindBy(xpath = "(//span[@class='title title-level-1'])[2]")
-    public WebElement Fleet;
+    //@FindBy(xpath = "(//span[@class='title title-level-1'])[2]")
+    //public WebElement Fleet;
 
-    @FindBy(xpath = "(//span[@class='title title-level-1'])[3]")
-    public WebElement Customers;
+    //@FindBy(xpath = "(//span[@class='title title-level-1'])[3]")
+    //public WebElement Customers;
 
-    @FindBy(xpath = "(//span[@class='title title-level-1'])[4]")
-    public WebElement Sales ;
+    //@FindBy(xpath = "(//span[@class='title title-level-1'])[4]")
+    //public WebElement Sales ;
 
-    @FindBy(xpath = "(//span[@class='title title-level-1'])[5]")
-    public WebElement Activities;
+    //@FindBy(xpath = "(//span[@class='title title-level-1'])[5]")
+    //public WebElement Activities;
 
     @FindBy(xpath = "(//span[@class='title title-level-1'])[6]")
     public WebElement Marketing;
