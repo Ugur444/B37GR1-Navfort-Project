@@ -9,12 +9,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+
 public class US58_InvalidIntegerNumberStepDefs {
 
 
-
     InvalidIntegerNumber invalidIntegerNumber = new InvalidIntegerNumber();
-
 
 
     @When("user click on the {string} Dropdown")
@@ -55,7 +54,6 @@ public class US58_InvalidIntegerNumberStepDefs {
     }
 
 
-
     @And("user should enter an invalid digit \\(less than 1) into the Repeat every field.")
     public void userShouldEnterAnInvalidDigitLessThanIntoTheRepeatEveryField() {
 
@@ -67,24 +65,18 @@ public class US58_InvalidIntegerNumberStepDefs {
     }
 
 
-
-
     @Then("user should see an error message \\(The value have not to be less than 1.)")
     public void userShouldSeeAnErrorMessageTheValueHaveNotToBeLessThan() {
 
 
+        String ExpectedMessage = "The value have not to be less than 1.";
+        String ActualMessage = invalidIntegerNumber.invalidMessage1.getText();
+        BrowserUtils.waitFor(5);
 
-//        String ExpectedMessage = "span";
-//        String ActualMessage = invalidIntegerNumber.invalidMessage1.getTagName();
-//        BrowserUtils.waitFor(5);
-//
-//        Assert.assertEquals("Message is not Equal!", ExpectedMessage, ActualMessage);
 
-       Assert.assertTrue( "Message is not diplayed",invalidIntegerNumber.invalidMessage1.isDisplayed());
-
+        Assert.assertTrue("Message is not diplayed", invalidIntegerNumber.invalidMessage1.isDisplayed());
+        Assert.assertEquals("Message is not Equal!", ExpectedMessage, ActualMessage);
     }
-
-
 
 
     @And("user should enter an invalid digit \\(more than 99) into the Repeat every field.")
@@ -103,11 +95,15 @@ public class US58_InvalidIntegerNumberStepDefs {
 //        String ExpectedMessage = "span";
 //        String ActualMessage =invalidIntegerNumber.invalidMessage2.getTagName();
 //        BrowserUtils.waitFor(5);
-//
 //        Assert.assertEquals("Message is not Equal!", ExpectedMessage, ActualMessage);
 
-        Assert.assertTrue("Message is not diplayed",invalidIntegerNumber.invalidMessage2.isDisplayed());
 
+        String ExpectedMessage = "The value have not to be more than 99.";
+        String ActualMessage = invalidIntegerNumber.invalidMessage2.getText();
+
+
+        Assert.assertTrue("Message is not diplayed", invalidIntegerNumber.invalidMessage2.isDisplayed());
+        Assert.assertEquals("Message is not Equal!", ExpectedMessage, ActualMessage);
     }
 
 
