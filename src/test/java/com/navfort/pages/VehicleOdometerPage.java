@@ -12,19 +12,34 @@ public class VehicleOdometerPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(linkText = "title title-level-1")
+    @FindBy(xpath = "//li[@class='dropdown dropdown-level-1'][1]")
     public WebElement fleetOption;
-    public void navigateToFleet(){
-        fleetOption.click();
-
-    }
 
 
-    @FindBy(linkText = "Vehicle Odometer")
+
+    @FindBy(xpath = "//span[.='Vehicle Odometer']")
     public WebElement vehicleOption;
 
-    public void goToVehicleOption(){
-        vehicleOption.click();
-    }
+    @FindBy(xpath = "//div[.='You do not have permission to perform this action.']")
+    public WebElement errorMessage;
+
+
+    @FindBy(xpath = "//span[@class='title title-level-1']")
+    public WebElement newFleetOption;
+
+
+
+    @FindBy(xpath = "//span[@class='title title-level-2']")
+    public WebElement newVehicleOption;
+
+
+
+
+
+
+
+
+
+
 
 }
